@@ -1,4 +1,5 @@
 const EventEmitter = require('events');
+const crypto = require('crypto');
 
 class SSE extends EventEmitter {
 
@@ -60,6 +61,15 @@ class SSE extends EventEmitter {
                         'Cache-Control': 'no-cache',
                         'Connection': 'keep-alive'
                     });
+
+
+                    /* Begin generate unique ID */
+                    let clientId;
+                    while ((clientId = crypto.randomBytes(5).toString("hex")) in this.#clients);
+                    /* End generate unique ID */
+
+
+                    this.#clients[clientId] = response;
 
                 }
 
