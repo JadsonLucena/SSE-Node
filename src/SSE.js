@@ -49,6 +49,12 @@ class SSE extends EventEmitter {
 
                     }
 
+                    if (this.#withCredentials) {
+
+                        response.setHeader('Access-Control-Allow-Credentials', true);
+
+                    }
+
                 }
 
             }
