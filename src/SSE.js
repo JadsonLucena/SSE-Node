@@ -71,6 +71,9 @@ class SSE extends EventEmitter {
 
                     this.#clients[clientId] = response;
 
+
+                    this.emit('open', clientId, request.headers['last-event-id']);
+
                 }
 
             }
