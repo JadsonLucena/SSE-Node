@@ -115,6 +115,15 @@ class SSE extends EventEmitter {
     get withCredentials() { return this.#withCredentials }
 
 
+    set allowOrigin(allowOrigin = null) { this.#allowOrigin = allowOrigin }
+
+    set limitByIP(limitByIP = 256) { this.#limitByIP = limitByIP }
+
+    set path(path = '/sse') { this.#path = path }
+
+    set withCredentials(withCredentials = false) { this.#withCredentials = withCredentials }
+
+
    close(clientId) {
 
         if (clientId in this.#clients) {
