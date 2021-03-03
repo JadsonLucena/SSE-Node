@@ -79,4 +79,20 @@ class SSE extends EventEmitter {
 
     }
 
+   close(clientId) {
+
+        if (clientId in this.#clients) {
+
+            this.#clients[clientId].removeAllListeners();
+
+            return delete this.#clients[clientId];
+
+        } else {
+
+            return null;
+
+        }
+
+    }
+
 };
