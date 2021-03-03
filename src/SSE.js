@@ -140,4 +140,43 @@ class SSE extends EventEmitter {
 
     }
 
+    send(clientId, data, {
+        encoding = 'utf8',
+        event = null, // If specified, an event will be dispatched to the browser on the listener instantiated with the same name.
+        id = null, // Defines the last event ID value of the EventSource object.
+        retry = null, // This must be an integer, specifying the reconnection time in milliseconds
+    } = {}) {
+
+        let payload = `data:${data}\n`;
+
+        if (event) {
+
+            payload += `event:${event}\n`;
+
+        }
+
+        if (id) {
+
+            payload += `id:${id}\n`;
+
+        }
+
+        if (retry) {
+
+            payload += `retry:${retry}\n`;
+
+        }
+
+        if (clientId in this.#clients && !this.#clients[clientId].destroyed) {
+
+            return this.#clients[clientId].write(`${payload}\n`, encoding);
+
+        } else {
+
+            return null;
+
+        }
+
+    }
+
 };
