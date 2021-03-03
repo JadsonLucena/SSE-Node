@@ -72,6 +72,17 @@ class SSE extends EventEmitter {
                     this.#clients[clientId] = response;
 
 
+                    this.#clients[clientId].on('error', e => {
+
+                        if (this.close(clientId)) {
+
+                            this.emit('error', clientId, e);
+
+                        }
+
+                    });
+
+
                     this.emit('open', clientId, request.headers['last-event-id']);
 
                 }
