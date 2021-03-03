@@ -103,6 +103,18 @@ class SSE extends EventEmitter {
 
     }
 
+
+    get allowOrigin() { return this.#allowOrigin }
+
+    get clients() { return Object.keys(this.#clients) }
+
+    get limitByIP() { return this.#limitByIP }
+
+    get path() { return this.#path }
+
+    get withCredentials() { return this.#withCredentials }
+
+
    close(clientId) {
 
         if (clientId in this.#clients) {
