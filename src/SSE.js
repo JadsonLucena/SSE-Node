@@ -180,3 +180,5 @@ class SSE extends EventEmitter {
     }
 
 };
+
+module.exports = SSE;
