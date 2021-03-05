@@ -66,3 +66,55 @@ on('error', (clientId: string, event: any) => void): void
 
 on('open', (clientId: string, lastEventId: string) => void): void
 ```
+
+## How to use
+```javascript
+// Front-end
+var source = new EventSource('/sse');
+
+source.onerror = e => console.log('Error', e);
+
+source.onopen = e => {
+
+    console.log('Open', e);
+
+    source.addEventListener('custom', e => console.log('Custon', e));
+    
+    source.onmessage = e => console.log('Message', e);
+
+};
+```
+
+```javascript
+// Back-end
+const SSE = require('./SSE.js');
+
+let sse = new SSE(server);
+
+sse.on('close', (clientId, e) => console.log('Close', clientId, e));
+
+sse.on('error', (clientId, e) => console.log('Error', clientId, e));
+
+sse.on('open', (clientId, lastEventId) => {
+    
+    console.log('Open', clientId, lastEventId);
+
+    // Custom events
+    sse.send(clientId, 'Hello World', {
+        event: 'custom'
+    });
+
+    // Single Client
+    sse.send(clientId, 'Hello World');
+
+    // Broadcast
+    sse.clients.forEach(clientId => sse.send(clientId, 'Hello World'));
+
+});
+```
+
+> By default the lib constructor on the back-end expects the /sse path to be inserted into the front-end constructor. If you prefer another path on the front-end, it must be specified in the back-end constructor.
+
+> Custom events must be instantiated on the front-end and referenced on the back-end.
+
+> If the methods return null, it indicates that the given id does not match an active user.
