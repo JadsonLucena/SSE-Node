@@ -1,0 +1,36 @@
+{
+  "name": "@jadsonlucena/sse",
+  "version": "1.0.0",
+  "description": "A complete and minimalist Server-Sent Events (SSE)",
+  "main": "./src/SSE.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "ci": "exit 0",
+    "test": "exit 0"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JadsonLucena/SSE-Node.git"
+  },
+  "keywords": [
+    "sse",
+    "server-sent-events",
+    "eventsource",
+    "event-stream",
+    "stream",
+    "server"
+  ],
+  "author": "JadsonLucena <jadsonlucena@gmail.com> (https://github.com/JadsonLucena)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JadsonLucena/SSE-Node/issues"
+  },
+  "homepage": "https://github.com/JadsonLucena/SSE-Node#readme"
+}
