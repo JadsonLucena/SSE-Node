@@ -107,3 +107,8 @@ sse.on('open', (clientId, lastEventId) => {
 > By default the lib constructor on the back-end expects the /sse path to be inserted into the front-end constructor. If you prefer another path on the front-end, it must be specified in the back-end constructor.
 
 > Custom events must be instantiated on the front-end and referenced on the back-end.
+
+### References
+
+> [Server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html)\
+> [Using server-sent events](https://developer.mozilla.org/pt-BR/docs/Web/API/Server-sent_events/Using_server-sent_events)
