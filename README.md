@@ -87,7 +87,7 @@ source.onopen = e => {
 
 ```javascript
 // Back-end
-const SSE = require('./SSE.js');
+const SSE = require('@jadsonlucena/sse'); // npm i @jadsonlucena/sse
 
 let sse = new SSE(server);
 
