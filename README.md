@@ -118,3 +118,9 @@ sse.on('open', (clientId, lastEventId) => {
 > Custom events must be instantiated on the front-end and referenced on the back-end.
 
 > If the methods return null, it indicates that the given id does not match an active user.
+
+
+### References
+
+> [Server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html)\
+> [Using server-sent events](https://developer.mozilla.org/pt-BR/docs/Web/API/Server-sent_events/Using_server-sent_events)
